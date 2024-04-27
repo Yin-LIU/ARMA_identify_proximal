@@ -70,6 +70,7 @@ h2.ColorbarVisible = 'off';
 
 %%  Plot AIC
 fig = figure(1);
+clf;
 ax=axes(fig);
 h=imagesc(ax,AIC);
 set(ax, 'XTickLabel',round(logspace(log10(100),log10(1),10),1), 'YTickLabel',round(logspace(log10(100),log10(1),10),1))
@@ -107,6 +108,7 @@ for i =1:10
         labels{i,j} =sprintf(num2str(AIC(i,j),'%.0f')+ "\n("+num2str(P)+","+num2str(Q)+")");
     end
 end
+labels=labels';
 th = text(xTxt(:), yTxt(:), (labels(:)), ...
     'VerticalAlignment', 'middle','HorizontalAlignment','Center');
 
@@ -148,6 +150,7 @@ for i =1:10
         labels{i,j} =sprintf(num2str(AICC(i,j),'%.0f')+ "\n("+num2str(P)+","+num2str(Q)+")");
     end
 end
+labels=labels';
 th = text(xTxt(:), yTxt(:), (labels(:)), ...
     'VerticalAlignment', 'middle','HorizontalAlignment','Center');
 hold off
@@ -191,6 +194,7 @@ for i =1:10
         labels{i,j} =sprintf(num2str(BIC(i,j),'%.0f')+ "\n("+num2str(P)+","+num2str(Q)+")");
     end
 end
+labels=labels';
 th = text(xTxt(:), yTxt(:), (labels(:)), ...
     'VerticalAlignment', 'middle','HorizontalAlignment','Center');
 hold off
